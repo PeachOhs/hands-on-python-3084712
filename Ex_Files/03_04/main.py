@@ -1,6 +1,9 @@
 import csv
 import json
+import os
 from pprint import pprint
+
+os.chdir("Ex_Files\\03_04")
 
 EINSTEIN = {
     "birthplace": "Germany",
@@ -28,7 +31,10 @@ with open("laureates.csv", "r") as f:
 
 laureates_beginning_with_a = []
 # LinkedIn learner code here
+for i in laureates:
+    if i["name"][0] in ["A","a"]:
+        pprint(i)
+        laureates_beginning_with_a.append(i)
 
-
-with open("laureates.json", "w") as f:
+with open("laureatesA.json", "w") as f:
     json.dump(laureates_beginning_with_a, f, indent=2)
